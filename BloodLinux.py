@@ -54,9 +54,7 @@ def countdown(t):
     until = datetime.datetime.now() + datetime.timedelta(seconds=int(t))
     while True:
         if (until - datetime.datetime.now()).total_seconds() > 0:
-            stdout.flush()
-            stdout.write("\r " + Fore.MAGENTA + "[*]" + Fore.WHITE + " Attack status => " + str(
-                (until - datetime.datetime.now()).total_seconds()) + " sec left ")
+            pass
         else:
             stdout.flush()
             stdout.write(
