@@ -885,7 +885,7 @@ def AttackCFB(target, until_datetime, scraper):
 # endregion
 
 # region PXCFB
-def LaunchPXCFB(target, thread, t):
+def LaunchPXCFB(target, thread, t, scraper):
     until = datetime.datetime.now() + datetime.timedelta(seconds=int(t))
     scraper = cloudscraper.create_scraper()
     for _ in range(int(thread)):
