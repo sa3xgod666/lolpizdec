@@ -890,7 +890,7 @@ def LaunchPXCFB(target, thread, t):
     scraper = cloudscraper.create_scraper()
     for _ in range(int(thread)):
         try:
-            thd = threading.Thread(target=AttackPXCFB, args=(target, until))
+            thd = threading.Thread(target=AttackPXCFB, args=(target, until, scraper))
             thd.start()
         except:
             pass
@@ -1976,7 +1976,7 @@ if __name__ == '__main__':
         if get_proxies():
             timer = threading.Thread(target=countdown, args=(t,))
             timer.start()
-            LaunchPXCFB(target, thread, t)
+            LaunchPXCFB(target, thread)
             timer.join()
     elif method == "get":
         timer = threading.Thread(target=countdown, args=(t,))
